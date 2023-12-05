@@ -1,0 +1,31 @@
+syntax = "proto3";
+package monitor.proto;
+
+import "google/protobuf/empty.proto";
+import "net_info.proto";
+import "mem_info.proto";
+import "cpu_stat.proto";
+import "cpu_softirq.proto";
+import "cpu_load.proto";
+
+
+message MonitorInfo{
+  string name = 1;
+  repeated SoftIrq soft_irq = 4;
+  CpuLoad cpu_load = 5;
+  repeated CpuStat cpu_stat = 6;
+  MemInfo mem_info = 7;
+  repeated NetInfo net_info = 8;
+}
+
+
+// gRPC 服务定义，定义了一个名为 GrpcManager 的 gRPC 服务
+service GrpcManager {
+  //该 RPC 方法用于向服务端发送监控信息，允许客户端更新或设置监控信息
+  rpc SetMonitorInfo(MonitorInfo) returns (google.protobuf.Empty) {
+  }
+  //该 RPC 方法用于向服务端请求获取监控信息，允许客户端获取服务端当前的监控状态
+  //这里的return 到生成的函数 就是指针；
+  rpc GetMonitorInfo(google.protobuf.Empty) returns (MonitorInfo) {
+  }
+}
