@@ -262,10 +262,13 @@ c-ares_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libcares.so
 client_LIB_DEPENDS:STATIC=general;monitor_proto;general;config;
 
 //Dependencies for the target
-config_LIB_DEPENDS:STATIC=general;yaml-cpp;
+config_LIB_DEPENDS:STATIC=general;yaml-cpp;general;pthread;
 
 //The directory containing a CMake configuration file for gRPC.
 gRPC_DIR:PATH=/usr/local/lib/cmake/grpc
+
+//Dependencies for the target
+log_LIB_DEPENDS:STATIC=general;singleton;
 
 //Dependencies for the target
 monitor_proto_LIB_DEPENDS:STATIC=general;protobuf::libprotobuf;general;gRPC::grpc;general;gRPC::grpc++;
@@ -389,7 +392,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=12
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=17
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

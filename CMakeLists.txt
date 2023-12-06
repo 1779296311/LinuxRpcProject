@@ -10,5 +10,6 @@ add_subdirectory(proto)
 add_subdirectory(display_monitor)
 add_subdirectory(utils)
 add_subdirectory(thread_pool)
+add_subdirectory(log)
 
-# add_subdirectory(test)
+add_subdirectory(test)

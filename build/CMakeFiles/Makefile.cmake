@@ -99,16 +99,21 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.26.4/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.26.4/CMakeSystem.cmake"
   "/work/display_monitor/CMakeLists.txt"
+  "/work/log/CMakeLists.txt"
+  "/work/log/src/CMakeLists.txt"
   "/work/proto/CMakeLists.txt"
   "/work/rpc_manager/CMakeLists.txt"
   "/work/rpc_manager/client/CMakeLists.txt"
   "/work/rpc_manager/server/CMakeLists.txt"
+  "/work/test/CMakeLists.txt"
+  "/work/test/config/CMakeLists.txt"
   "/work/test_monitor/CMakeLists.txt"
   "/work/test_monitor/src/CMakeLists.txt"
   "/work/thread_pool/CMakeLists.txt"
   "/work/thread_pool/src/CMakeLists.txt"
   "/work/utils/CMakeLists.txt"
   "/work/utils/config/CMakeLists.txt"
+  "/work/utils/singleton/CMakeLists.txt"
   )
 
 # The corresponding makefile is:
@@ -130,8 +135,13 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "display_monitor/CMakeFiles/CMakeDirectoryInformation.cmake"
   "utils/CMakeFiles/CMakeDirectoryInformation.cmake"
   "utils/config/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "utils/singleton/CMakeFiles/CMakeDirectoryInformation.cmake"
   "thread_pool/CMakeFiles/CMakeDirectoryInformation.cmake"
   "thread_pool/src/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "log/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "log/src/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "test/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "test/config/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
@@ -143,5 +153,8 @@ set(CMAKE_DEPEND_INFO_FILES
   "display_monitor/CMakeFiles/display.dir/DependInfo.cmake"
   "display_monitor/CMakeFiles/display_autogen.dir/DependInfo.cmake"
   "utils/config/CMakeFiles/config.dir/DependInfo.cmake"
+  "utils/singleton/CMakeFiles/singleton.dir/DependInfo.cmake"
   "thread_pool/src/CMakeFiles/thread_pool.dir/DependInfo.cmake"
+  "log/src/CMakeFiles/log.dir/DependInfo.cmake"
+  "test/config/CMakeFiles/config_test.dir/DependInfo.cmake"
   )

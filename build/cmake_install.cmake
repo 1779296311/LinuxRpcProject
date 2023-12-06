@@ -50,6 +50,8 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/work/build/display_monitor/cmake_install.cmake")
   include("/work/build/utils/cmake_install.cmake")
   include("/work/build/thread_pool/cmake_install.cmake")
+  include("/work/build/log/cmake_install.cmake")
+  include("/work/build/test/cmake_install.cmake")
 
 endif()
 

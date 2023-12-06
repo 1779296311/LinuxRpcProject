@@ -1,4 +1,7 @@
 
 add_subdirectory(
-    config
+    config    
+)
+add_subdirectory(
+    singleton
 )

@@ -1,6 +1,5 @@
 
 
 add_subdirectory(
-    config
+    src
 )
-

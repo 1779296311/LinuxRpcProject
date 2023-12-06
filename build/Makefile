@@ -208,6 +208,19 @@ config/fast:
 .PHONY : config/fast
 
 #=============================================================================
+# Target rules for targets named singleton
+
+# Build rule for target.
+singleton: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 singleton
+.PHONY : singleton
+
+# fast build rule for target.
+singleton/fast:
+	$(MAKE) $(MAKESILENT) -f utils/singleton/CMakeFiles/singleton.dir/build.make utils/singleton/CMakeFiles/singleton.dir/build
+.PHONY : singleton/fast
+
+#=============================================================================
 # Target rules for targets named thread_pool
 
 # Build rule for target.
@@ -220,6 +233,32 @@ thread_pool/fast:
 	$(MAKE) $(MAKESILENT) -f thread_pool/src/CMakeFiles/thread_pool.dir/build.make thread_pool/src/CMakeFiles/thread_pool.dir/build
 .PHONY : thread_pool/fast
 
+#=============================================================================
+# Target rules for targets named log
+
+# Build rule for target.
+log: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 log
+.PHONY : log
+
+# fast build rule for target.
+log/fast:
+	$(MAKE) $(MAKESILENT) -f log/src/CMakeFiles/log.dir/build.make log/src/CMakeFiles/log.dir/build
+.PHONY : log/fast
+
+#=============================================================================
+# Target rules for targets named config_test
+
+# Build rule for target.
+config_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 config_test
+.PHONY : config_test
+
+# fast build rule for target.
+config_test/fast:
+	$(MAKE) $(MAKESILENT) -f test/config/CMakeFiles/config_test.dir/build.make test/config/CMakeFiles/config_test.dir/build
+.PHONY : config_test/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -231,10 +270,13 @@ help:
 	@echo "... display_autogen"
 	@echo "... client"
 	@echo "... config"
+	@echo "... config_test"
 	@echo "... display"
+	@echo "... log"
 	@echo "... monitor"
 	@echo "... monitor_proto"
 	@echo "... server"
+	@echo "... singleton"
 	@echo "... thread_pool"
 .PHONY : help
 

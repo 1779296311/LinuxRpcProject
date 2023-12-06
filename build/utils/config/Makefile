@@ -154,6 +154,30 @@ config.cpp.s:
 	cd /work/build && $(MAKE) $(MAKESILENT) -f utils/config/CMakeFiles/config.dir/build.make utils/config/CMakeFiles/config.dir/config.cpp.s
 .PHONY : config.cpp.s
 
+config_develop.o: config_develop.cpp.o
+.PHONY : config_develop.o
+
+# target to build an object file
+config_develop.cpp.o:
+	cd /work/build && $(MAKE) $(MAKESILENT) -f utils/config/CMakeFiles/config.dir/build.make utils/config/CMakeFiles/config.dir/config_develop.cpp.o
+.PHONY : config_develop.cpp.o
+
+config_develop.i: config_develop.cpp.i
+.PHONY : config_develop.i
+
+# target to preprocess a source file
+config_develop.cpp.i:
+	cd /work/build && $(MAKE) $(MAKESILENT) -f utils/config/CMakeFiles/config.dir/build.make utils/config/CMakeFiles/config.dir/config_develop.cpp.i
+.PHONY : config_develop.cpp.i
+
+config_develop.s: config_develop.cpp.s
+.PHONY : config_develop.s
+
+# target to generate assembly for a file
+config_develop.cpp.s:
+	cd /work/build && $(MAKE) $(MAKESILENT) -f utils/config/CMakeFiles/config.dir/build.make utils/config/CMakeFiles/config.dir/config_develop.cpp.s
+.PHONY : config_develop.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -166,6 +190,9 @@ help:
 	@echo "... config.o"
 	@echo "... config.i"
 	@echo "... config.s"
+	@echo "... config_develop.o"
+	@echo "... config_develop.i"
+	@echo "... config_develop.s"
 .PHONY : help
 
 
