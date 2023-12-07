@@ -106,7 +106,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/work/rpc_manager/client/CMakeLists.txt"
   "/work/rpc_manager/server/CMakeLists.txt"
   "/work/test/CMakeLists.txt"
-  "/work/test/config/CMakeLists.txt"
+  "/work/test/log/CMakeLists.txt"
   "/work/test_monitor/CMakeLists.txt"
   "/work/test_monitor/src/CMakeLists.txt"
   "/work/thread_pool/CMakeLists.txt"
@@ -141,7 +141,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "log/CMakeFiles/CMakeDirectoryInformation.cmake"
   "log/src/CMakeFiles/CMakeDirectoryInformation.cmake"
   "test/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "test/config/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "test/log/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
@@ -156,5 +156,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "utils/singleton/CMakeFiles/singleton.dir/DependInfo.cmake"
   "thread_pool/src/CMakeFiles/thread_pool.dir/DependInfo.cmake"
   "log/src/CMakeFiles/log.dir/DependInfo.cmake"
-  "test/config/CMakeFiles/config_test.dir/DependInfo.cmake"
+  "test/log/CMakeFiles/log_test.dir/DependInfo.cmake"
   )

@@ -236,7 +236,7 @@ StdoutLogAppender::log(LogLevel::Level level, LogEvent::sptr ev) {
     std::cout.flush();
 }
 
-FileLogAppender::FileLogAppender(std::string &name, LogLevel::Level level) :
+FileLogAppender::FileLogAppender(const std::string &name, LogLevel::Level level) :
     file_name_(name), LogAppender(level) {
         reopen();
     }
@@ -341,7 +341,49 @@ void
 LoggerManagerImp::init(){
     // TODO 通过读取配置文件信息，创建需要的日志器
     std::unique_lock<std::mutex> lock(mutex_);
-    
+    auto log_info = monitor::Config::GetLogConfigFileInfo();
+    auto logs_ptr = 
+    monitor::Config::Register<std::vector<LogConfig>>(
+        std::string{log_info.prefix_ + ".logs"}
+    );
+    if(monitor::Config::LoadFromFile(log_info.yaml_file_, log_info.prefix_)) {
+        const auto &logs = logs_ptr->getValue();
+        for(const auto &log : logs){
+            loggers_.erase(log.name_);
+            auto logger = std::make_shared<Logger>(
+                log.name_, log.formatter_, log.level_
+            );
+            LogAppender::sptr logappd;
+            for(const auto &appd : log.appenders_) {
+                switch (appd.type_){
+                    case LogAppenderConfig::Type::STDOUT : {
+                        logappd = std::make_shared<StdoutLogAppender>(appd.level_);
+                        break;
+                    }
+                    case LogAppenderConfig::Type::FILE : {
+                        logappd = std::make_shared<FileLogAppender>(
+                            appd.file_,
+                            appd.level_
+                        );
+                        break;
+                    }
+                    default :{
+                        std::cerr << "LoggerManager::init exception 无效的"
+                                     "appender 配置值, appender.type=" 
+                                  << std::endl;
+                        break; 
+                    }  
+                }
+                if(!appd.formatter_.empty()) {
+                    logappd->setFormatter(
+                        std::make_shared<LogFormatter>(appd.formatter_)
+                    );
+                }
+                logger->addAppender(std::move(logappd));
+            }
+            loggers_.emplace(log.name_, std::move(logger));
+        }
+    }
     ensureGlobalLoggerExist();
 }
 

@@ -1,6 +1,7 @@
 
 
 add_subdirectory(
-    config
+    log
+    # config
 )
 

@@ -1,11 +1,11 @@
-#include "config_develop.hpp"
+#include "config.hpp"
 
 auto config_system_port = 
     monitor::Config::Lookup<int>(std::string{"system.port"}, 6666);
 auto config_test_list = monitor::Config::Lookup<std::vector<std::string>>(
     "test_list", std::vector<std::string>{});
 auto config_test_linklist = monitor::Config::Lookup<std::list<std::string>>(
-    "test_linklist", std::list<std::string>{"list", "string"});
+    "test.test_linklist", std::list<std::string>{"list", "string"});
 auto config_test_map = monitor::Config::Lookup<std::map<std::string, std::string>>(
     "test_map", std::map<std::string, std::string>{
                     std::make_pair("map1", "srting"),
@@ -78,9 +78,9 @@ public:
 }
 
 auto config_test_user_type = 
-    monitor::Config::Lookup<Goods>("user.goods", Goods{});
+    monitor::Config::Register<Goods>("test.user.goods");
 auto config_test_uset_type_list = 
-    monitor::Config::Lookup<std::vector<Goods>>("user.goods_list", std::vector<Goods>{});
+    monitor::Config::Register<std::vector<Goods>>("test.user.goods_list");
 
 // ===============================================
 
@@ -97,7 +97,7 @@ void TEST_loadConfig(const std::string& path)
     {
         std::cout << e.what() << std::endl;
     }
-    monitor::Config::LoadFromYAML(config);
+    monitor::Config::LoadFromYAML(config, std::string{"test"});
 }
 
 // 测试配置项的 toString 方法
@@ -171,5 +171,6 @@ int main()
     YAML::Node node;
     auto str = node["node"] ? node["node"].as<std::string>() : "";
     std::cout << str << std::endl;
+//    monitor::Config::debug();
     return 0;
 }

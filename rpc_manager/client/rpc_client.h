@@ -19,7 +19,8 @@ class RpcClient {
 
 class RpcClientReceiver : public RpcClient{
   public:
-    RpcClientReceiver();
+    RpcClientReceiver(const std::string &file=std::string{"/work/client.yml"},
+                      const std::string &prefix=std::string{"client"});
     ~RpcClientReceiver();
 
   public:
@@ -41,7 +42,8 @@ class RpcClientReceiver : public RpcClient{
 
 class RpcClientSender : public RpcClient{
   public:
-    RpcClientSender();
+    RpcClientSender(const std::string &file=std::string{"/work/server.yml"},
+                    const std::string &prefix=std::string{"server"});
     ~RpcClientSender();
   public:
     void SetMonitorInfo(const monitor::proto::MonitorInfo& monito_info);

@@ -1,4 +1,4 @@
-#pragma once
+
 #include <memory>
 #include <thread>
 #include <vector>
@@ -13,8 +13,9 @@
 
 #include "monitor_info.grpc.pb.h"
 #include "monitor_info.pb.h"
+#include "config.hpp"
 
-int main() {
+int main(int argc, char **argv) {
   std::vector<std::shared_ptr<monitor::MonitorInter>> runners_;
   runners_.emplace_back(new monitor::CpuSoftIrqMonitor());
   runners_.emplace_back(new monitor::CpuLoadMonitor());
@@ -22,7 +23,20 @@ int main() {
   runners_.emplace_back(new monitor::MemMonitor());
   runners_.emplace_back(new monitor::NetMonitor());
 
-  monitor::RpcClientSender rpc_client_;
+
+//读取配置信息
+  std::string config_path {};
+  if(argc < 1){
+    config_path = std::string{"/work/configs.yml"};
+  }else{
+    config_path = argv[1];
+  }
+  monitor::Config::READ_GLOBAL_FIEL_INFORMATION(
+    config_path
+  );
+  auto client_info = monitor::Config::GetServerConfigFileInfo();
+
+  monitor::RpcClientSender rpc_client_(client_info.yaml_file_, client_info.prefix_);
   char *name = getenv("USER");
   std::unique_ptr<std::thread> thread_ = nullptr;
   thread_ = std::make_unique<std::thread>([&]() {

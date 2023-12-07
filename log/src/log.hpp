@@ -12,6 +12,7 @@
 #include <mutex>
 #include <sstream>
 #include "singleton.hpp"
+#include "config.hpp"
 
 namespace monitor{
 
@@ -79,11 +80,20 @@ public:
     // 目标文件路径
     std::string file_;
 
+    LogAppenderConfig(LogAppenderConfig::Type type_, 
+                      LogLevel::Level level_, 
+                      const std::string &formatter_,
+                      const std::string &file_ ) :
+                      type_(type_), level_(level_), 
+                      formatter_(formatter_), 
+                      file_(file_) 
+                    {}
+
 public:
     LogAppenderConfig() :
         type_(Type::STDOUT), level_(LogLevel::Level::UNKNOW) {}
 
-    bool operator== (const LogAppenderConfig &other){
+    bool operator== (const LogAppenderConfig &other) const {
         return type_ == other.type_ && level_ == other.level_ && 
                formatter_ == other.formatter_ && file_ == other.file_;
     }
@@ -93,16 +103,114 @@ class LogConfig{
 public:
     LogLevel::Level level_;
     std::string name_;
-    std::string formater_;
-    std::vector<LogAppenderConfig> appender_;
-
+    std::string formatter_;
+    std::vector<LogAppenderConfig> appenders_;
+    LogConfig(LogLevel::Level level, const std::string &name, const std::string &formatter) :
+        level_(level), name_(name), formatter_(formatter) {}
 public:
     LogConfig() :
         level_(LogLevel::Level::UNKNOW) {}
-    bool operator== (const LogConfig& other){
+    bool operator== (const LogConfig& other) const {
         return name_ == other.name_;
     }
 };
+
+template<>
+class LexicalCast<std::string, monitor::LogAppenderConfig> {
+public:
+    LogAppenderConfig operator() (const std::string &from) {
+        auto node = YAML::Load(from);
+        if(!node.IsMap()){
+            return  LogAppenderConfig {};
+        }
+        return LogAppenderConfig {
+            static_cast<LogAppenderConfig::Type> (
+                node["type"] ? (node["type"].as<int>()) : 0
+            ),
+            static_cast<LogLevel::Level>(
+                node["level"] ? (node["level"].as<int>()) : 0
+            ),
+            node["formatter"] ? node["formatter"].as<std::string>() : std::string{},
+            node["file"] ? node["file"].as<std::string>() : std::string{}
+        };
+    }
+};
+
+template<>
+class LexicalCast<monitor::LogAppenderConfig, std::string>{
+public:
+    std::string operator() (const monitor::LogAppenderConfig &from) {
+        YAML::Node node;
+        node["type"] = static_cast<int>(from.type_);
+        node["level"] = static_cast<int>(from.level_);
+        node["file"] = from.file_;
+        node["fformatter"] = from.formatter_;
+        std::stringstream ss;
+        ss << node;
+        return ss.str();
+    }
+};
+
+template<>
+class LexicalCast<monitor::LogConfig, std::string>{
+public:
+    std::string operator() (const monitor::LogConfig &from ) {
+        YAML::Node node;
+        node["name"] = from.name_;
+        node["level"] = static_cast<int>(from.level_);
+        node["formatter"] = from.formatter_;
+        for(auto &appd : from.appenders_) {
+            node["appender"].push_back(
+                LexicalCast<LogAppenderConfig, std::string>()(appd)
+            );
+        }
+        std::stringstream ss;
+        ss << node;
+        return ss.str();
+    }
+};
+
+
+template<>
+class LexicalCast<std::string, monitor::LogConfig> {
+public:
+    LogConfig operator() (const std::string &from) {
+        auto node = YAML::Load(from);
+        if(!node.IsMap()){
+            return LogConfig {};
+        }
+        LogConfig result(
+            node["level"] ? 
+                (static_cast<LogLevel::Level>(node["level"].as<int>())) : 
+                LogLevel::Level::UNKNOW ,
+            node["name"] ? 
+                (node["name"].as<std::string>()) :
+                std::string{},
+            node["formatter"] ?
+                (node["formatter"].as<std::string>()) :
+                std::string{}
+        );
+        if(node["appender"] && node["appender"].IsSequence()){
+            std::stringstream ss;
+            for(const auto& appd : node["appender"]) {
+                ss.str("");
+                ss << appd;
+                result.appenders_.emplace_back(
+                    LexicalCast<std::string, monitor::LogAppenderConfig>()(ss.str())
+                );
+                auto it = result.appenders_.end() - 1;
+                if(it->formatter_.empty()){
+                    it->formatter_ = result.formatter_;
+                }
+                if(it->level_ == LogLevel::Level::UNKNOW){
+                    it->level_ = result.level_;
+                }
+            }
+        }
+        return result;
+    }
+};
+
 
 //日志信息
 class LogEvent{
@@ -245,7 +353,7 @@ public:
 class FileLogAppender : public LogAppender {
 public:
     ADD_SPTR_DEFINE(FileLogAppender);
-    FileLogAppender(std::string &file, LogLevel::Level level = LogLevel::Level::DEBUG);
+    FileLogAppender(const std::string &file, LogLevel::Level level = LogLevel::Level::DEBUG);
     void log(LogLevel::Level level, LogEvent::sptr ev) override;
     bool reopen();
 

@@ -1,0 +1,11 @@
+client:
+  prefix: "client"
+  yaml_file: "/work/client.yml"
+
+server:
+  prefix: "server"
+  yaml_file: "/work/server.yml"
+
+log:
+  prefix: "log"
+  yaml_file: "/work/log.yml"

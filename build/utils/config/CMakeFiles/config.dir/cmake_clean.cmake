@@ -1,8 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/config.dir/config.cpp.o"
   "CMakeFiles/config.dir/config.cpp.o.d"
-  "CMakeFiles/config.dir/config_develop.cpp.o"
-  "CMakeFiles/config.dir/config_develop.cpp.o.d"
   "libconfig.a"
   "libconfig.pdb"
 )

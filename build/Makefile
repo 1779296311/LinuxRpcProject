@@ -247,17 +247,17 @@ log/fast:
 .PHONY : log/fast
 
 #=============================================================================
-# Target rules for targets named config_test
+# Target rules for targets named log_test
 
 # Build rule for target.
-config_test: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 config_test
-.PHONY : config_test
+log_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 log_test
+.PHONY : log_test
 
 # fast build rule for target.
-config_test/fast:
-	$(MAKE) $(MAKESILENT) -f test/config/CMakeFiles/config_test.dir/build.make test/config/CMakeFiles/config_test.dir/build
-.PHONY : config_test/fast
+log_test/fast:
+	$(MAKE) $(MAKESILENT) -f test/log/CMakeFiles/log_test.dir/build.make test/log/CMakeFiles/log_test.dir/build
+.PHONY : log_test/fast
 
 # Help Target
 help:
@@ -270,9 +270,9 @@ help:
 	@echo "... display_autogen"
 	@echo "... client"
 	@echo "... config"
-	@echo "... config_test"
 	@echo "... display"
 	@echo "... log"
+	@echo "... log_test"
 	@echo "... monitor"
 	@echo "... monitor_proto"
 	@echo "... server"

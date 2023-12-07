@@ -40,6 +40,6 @@
 /work/build/log/src/CMakeFiles/rebuild_cache.dir
 /work/build/test/CMakeFiles/edit_cache.dir
 /work/build/test/CMakeFiles/rebuild_cache.dir
-/work/build/test/config/CMakeFiles/config_test.dir
-/work/build/test/config/CMakeFiles/edit_cache.dir
-/work/build/test/config/CMakeFiles/rebuild_cache.dir
+/work/build/test/log/CMakeFiles/log_test.dir
+/work/build/test/log/CMakeFiles/edit_cache.dir
+/work/build/test/log/CMakeFiles/rebuild_cache.dir

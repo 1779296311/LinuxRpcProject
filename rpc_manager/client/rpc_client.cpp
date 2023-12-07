@@ -6,12 +6,19 @@ namespace monitor {
 RpcClient::RpcClient() { }
 RpcClient::~RpcClient() { }
 
-RpcClientReceiver::RpcClientReceiver() {
+RpcClientReceiver::RpcClientReceiver(const std::string &file,
+                                     const std::string &prefix) {
 
-  auto& clientConfig = ClientConfigReader::getInstance("/work/client.yaml");
-  if (!clientConfig.readServers(servers)) {
-    servers.emplace_back(std::string{"localhost:50051"});
+  auto listening_servers_list = 
+    monitor::Config::Register<std::vector<std::string>>(std::string{prefix + ".listening_servers"});
+
+  if(monitor::Config::LoadFromFile(file, prefix)) {
+    servers = listening_servers_list->getValue();
   }
+  if(servers.size() == 0) {
+      servers.emplace_back(std::string{"localhost:50051"});
+  }
+
   for(int i=0; i<servers.size(); ++i){
     //指定主机端口，并且不加密
     auto channel = grpc::CreateChannel(servers[i], grpc::InsecureChannelCredentials());
@@ -22,14 +29,19 @@ RpcClientReceiver::RpcClientReceiver() {
 }
 RpcClientReceiver::~RpcClientReceiver() {}
 
-RpcClientSender::RpcClientSender() {
+RpcClientSender::RpcClientSender(const std::string &file,
+                                 const std::string &prefix) {
+  auto send_to_server = 
+    monitor::Config::Register<std::string>(std::string{prefix + ".send_to_server"});
 
-  auto& serverConfig = ServerConfigReader::getInstance("/work/server.yaml");
   std::string local;
-  if (!serverConfig.readSendTo(local)) {
-    local = {"localhost:50051"};
-    return;
+  if(monitor::Config::LoadFromFile(file, prefix)) {
+    local = send_to_server->getValue();
   }
+  if(local.empty()){
+    local = (std::string{"localhost:50051"});
+  }
+
   //指定主机端口，并且不加密
   auto channel = 
     grpc::CreateChannel(local,grpc::InsecureChannelCredentials());

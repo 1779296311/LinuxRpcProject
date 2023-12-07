@@ -1,4 +1,4 @@
-#pragma once
+
 
 #include <QApplication>
 #include <thread>
@@ -7,8 +7,10 @@
 #include <condition_variable>
 #include "client/rpc_client.h"
 #include "monitor_widget.h"
+#include "config.hpp"
 
 int main(int argc, char* argv[]) {
+
   QApplication app(argc, argv);
 
   //设置样式
@@ -17,8 +19,18 @@ int main(int argc, char* argv[]) {
   QString style = QLatin1String(styleFile.readAll());
   app.setStyleSheet(style);
 
-  //用于与 RPC 服务器通信
-  monitor::RpcClientReceiver rpc_client;
+  //用于与 RPC 服务器通信,首先读取配置信息
+  std::string config_path {};
+  if(argc < 1){
+    config_path = std::string{"/work/configs.yml"};
+  }else{
+    config_path = argv[1];
+  }
+  monitor::Config::READ_GLOBAL_FIEL_INFORMATION(
+    config_path
+  );
+  auto client_info = monitor::Config::GetClientConfigFileInfo();
+  monitor::RpcClientReceiver rpc_client(client_info.yaml_file_, client_info.prefix_);
   //用于存储监视信息
   std::vector<monitor::proto::MonitorInfo> monitor_infos(rpc_client.GetServerSize());
 

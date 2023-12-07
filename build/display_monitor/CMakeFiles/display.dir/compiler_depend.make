@@ -3692,7 +3692,52 @@ display_monitor/CMakeFiles/display.dir/main.cpp.o: /work/display_monitor/main.cp
   /usr/include/c++/7/deque \
   /usr/include/c++/7/bits/stl_deque.h \
   /usr/include/c++/7/bits/deque.tcc \
-  /usr/include/c++/7/bits/stl_queue.h
+  /usr/include/c++/7/bits/stl_queue.h \
+  /work/utils/config/config.hpp \
+  /usr/include/c++/7/sstream \
+  /usr/include/c++/7/bits/sstream.tcc \
+  /usr/include/c++/7/shared_mutex \
+  /usr/local/include/yaml-cpp/yaml.h \
+  /usr/local/include/yaml-cpp/parser.h \
+  /usr/local/include/yaml-cpp/dll.h \
+  /usr/local/include/yaml-cpp/emitter.h \
+  /usr/local/include/yaml-cpp/binary.h \
+  /usr/local/include/yaml-cpp/emitterdef.h \
+  /usr/local/include/yaml-cpp/emittermanip.h \
+  /usr/local/include/yaml-cpp/null.h \
+  /usr/local/include/yaml-cpp/ostream_wrapper.h \
+  /usr/local/include/yaml-cpp/emitterstyle.h \
+  /usr/local/include/yaml-cpp/stlemitter.h \
+  /usr/local/include/yaml-cpp/exceptions.h \
+  /usr/local/include/yaml-cpp/mark.h \
+  /usr/local/include/yaml-cpp/noexcept.h \
+  /usr/local/include/yaml-cpp/traits.h \
+  /usr/local/include/yaml-cpp/node/node.h \
+  /usr/local/include/yaml-cpp/node/detail/iterator_fwd.h \
+  /usr/local/include/yaml-cpp/node/ptr.h \
+  /usr/local/include/yaml-cpp/node/type.h \
+  /usr/local/include/yaml-cpp/node/impl.h \
+  /usr/local/include/yaml-cpp/node/detail/memory.h \
+  /usr/local/include/yaml-cpp/node/detail/node.h \
+  /usr/local/include/yaml-cpp/node/detail/node_ref.h \
+  /usr/local/include/yaml-cpp/node/detail/node_data.h \
+  /usr/local/include/yaml-cpp/node/detail/node_iterator.h \
+  /usr/local/include/yaml-cpp/node/iterator.h \
+  /usr/local/include/yaml-cpp/node/detail/iterator.h \
+  /usr/local/include/yaml-cpp/node/convert.h \
+  /usr/include/c++/7/valarray \
+  /usr/include/c++/7/bits/valarray_array.h \
+  /usr/include/c++/7/bits/valarray_array.tcc \
+  /usr/include/c++/7/bits/valarray_before.h \
+  /usr/include/c++/7/bits/slice_array.h \
+  /usr/include/c++/7/bits/valarray_after.h \
+  /usr/include/c++/7/bits/gslice.h \
+  /usr/include/c++/7/bits/gslice_array.h \
+  /usr/include/c++/7/bits/mask_array.h \
+  /usr/include/c++/7/bits/indirect_array.h \
+  /usr/local/include/yaml-cpp/node/detail/impl.h \
+  /usr/local/include/yaml-cpp/node/parse.h \
+  /usr/local/include/yaml-cpp/node/emit.h
 
 display_monitor/CMakeFiles/display.dir/mem_model.cpp.o: /work/display_monitor/mem_model.cpp \
   /usr/include/stdc-predef.h \
@@ -6041,11 +6086,61 @@ display_monitor/CMakeFiles/display.dir/net_model.cpp.o: /work/display_monitor/ne
 
 /usr/local/qt5/include/QtGui/QFont:
 
-/usr/local/qt5/include/QtGui/QColor:
-
 /work/display_monitor/monitor_inter.cpp:
 
 /work/display_monitor/mem_model.cpp:
+
+/usr/local/include/yaml-cpp/node/emit.h:
+
+/usr/local/include/yaml-cpp/node/parse.h:
+
+/usr/include/c++/7/bits/gslice_array.h:
+
+/usr/include/c++/7/bits/gslice.h:
+
+/usr/include/c++/7/bits/valarray_before.h:
+
+/usr/include/c++/7/bits/valarray_array.tcc:
+
+/usr/include/c++/7/bits/valarray_array.h:
+
+/usr/include/c++/7/valarray:
+
+/usr/local/include/yaml-cpp/node/detail/node_iterator.h:
+
+/usr/local/include/yaml-cpp/node/detail/node_ref.h:
+
+/usr/local/include/yaml-cpp/node/detail/node.h:
+
+/usr/local/include/yaml-cpp/node/type.h:
+
+/usr/local/qt5/include/QtGui/QColor:
+
+/usr/local/include/yaml-cpp/node/node.h:
+
+/usr/local/include/yaml-cpp/traits.h:
+
+/usr/local/include/yaml-cpp/noexcept.h:
+
+/usr/local/include/yaml-cpp/mark.h:
+
+/usr/local/include/yaml-cpp/exceptions.h:
+
+/usr/local/include/yaml-cpp/stlemitter.h:
+
+/usr/local/include/yaml-cpp/emitterstyle.h:
+
+/usr/local/include/yaml-cpp/binary.h:
+
+/usr/local/include/yaml-cpp/emitter.h:
+
+/usr/include/c++/7/shared_mutex:
+
+/usr/include/c++/7/sstream:
+
+/usr/include/c++/7/bits/slice_array.h:
+
+/work/utils/config/config.hpp:
 
 /usr/local/include/grpcpp/server_posix_impl.h:
 
@@ -6119,6 +6214,8 @@ display_monitor/display_autogen/EWIEGA46WW/moc_net_model.cpp:
 
 /usr/local/qt5/include/QtWidgets/qtreewidget.h:
 
+/usr/local/include/yaml-cpp/node/detail/memory.h:
+
 /usr/local/qt5/include/QtWidgets/qtreeview.h:
 
 /usr/local/qt5/include/QtWidgets/qtoolbutton.h:
@@ -6148,6 +6245,8 @@ display_monitor/display_autogen/EWIEGA46WW/moc_net_model.cpp:
 /usr/local/qt5/include/QtWidgets/qsplitter.h:
 
 /usr/local/qt5/include/QtWidgets/qspinbox.h:
+
+/usr/local/include/yaml-cpp/dll.h:
 
 /usr/local/qt5/include/QtWidgets/qsizegrip.h:
 
@@ -6196,6 +6295,8 @@ display_monitor/display_autogen/EWIEGA46WW/moc_net_model.cpp:
 /usr/local/qt5/include/QtWidgets/qgraphicsgridlayout.h:
 
 /usr/local/qt5/include/QtWidgets/qgraphicseffect.h:
+
+/usr/local/include/yaml-cpp/node/impl.h:
 
 /usr/local/qt5/include/QtWidgets/qgraphicslayout.h:
 
@@ -6403,6 +6504,8 @@ display_monitor/display_autogen/EWIEGA46WW/moc_net_model.cpp:
 
 /usr/local/include/google/protobuf/stubs/stl_util.h:
 
+/usr/local/include/yaml-cpp/emittermanip.h:
+
 /usr/include/x86_64-linux-gnu/bits/types/struct_sigstack.h:
 
 /usr/include/c++/7/bits/stl_iterator_base_funcs.h:
@@ -6489,6 +6592,8 @@ proto/monitor_info.grpc.pb.h:
 
 /usr/include/c++/7/optional:
 
+/usr/local/include/yaml-cpp/node/detail/iterator_fwd.h:
+
 /usr/local/qt5/include/QtWidgets/QStackedWidget:
 
 /usr/local/include/grpc/impl/codegen/atm.h:
@@ -6523,6 +6628,8 @@ proto/monitor_info.grpc.pb.h:
 
 /usr/local/qt5/include/QtCore/qmath.h:
 
+/usr/include/c++/7/bits/mask_array.h:
+
 /usr/include/x86_64-linux-gnu/bits/posix1_lim.h:
 
 /usr/local/qt5/include/QtGui/QtGuiDepends:
@@ -6534,6 +6641,8 @@ proto/monitor_info.grpc.pb.h:
 /usr/include/x86_64-linux-gnu/bits/types/FILE.h:
 
 /usr/include/c++/7/numeric:
+
+/usr/include/c++/7/bits/sstream.tcc:
 
 /usr/include/x86_64-linux-gnu/bits/fp-logb.h:
 
@@ -6656,6 +6765,8 @@ display_monitor/display_autogen/EWIEGA46WW/moc_monitor_inter.cpp:
 /usr/include/x86_64-linux-gnu/sys/select.h:
 
 /usr/local/qt5/include/QtCore/qjsondocument.h:
+
+/usr/local/include/yaml-cpp/node/detail/node_data.h:
 
 /usr/include/c++/7/bits/cxxabi_init_exception.h:
 
@@ -6807,6 +6918,8 @@ display_monitor/display_autogen/EWIEGA46WW/moc_monitor_inter.cpp:
 
 /usr/local/qt5/include/QtCore/qsocketnotifier.h:
 
+/usr/local/include/yaml-cpp/node/ptr.h:
+
 /usr/include/c++/7/tr1/legendre_function.tcc:
 
 /usr/local/qt5/include/QtCore/qrefcount.h:
@@ -6886,6 +6999,8 @@ proto/monitor_info.pb.h:
 /usr/local/qt5/include/QtCore/qprocessordetection.h:
 
 /usr/local/qt5/include/QtCore/qobject.h:
+
+/usr/include/c++/7/bits/indirect_array.h:
 
 /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h:
 
@@ -6979,6 +7094,8 @@ proto/monitor_info.pb.h:
 
 /usr/include/c++/7/bits/stl_tree.h:
 
+/usr/local/include/yaml-cpp/parser.h:
+
 /usr/local/qt5/include/QtCore/qobjectdefs.h:
 
 /usr/local/include/google/protobuf/has_bits.h:
@@ -6990,6 +7107,8 @@ proto/monitor_info.pb.h:
 /usr/include/alloca.h:
 
 /usr/include/c++/7/bits/stl_algobase.h:
+
+/usr/local/include/yaml-cpp/ostream_wrapper.h:
 
 /usr/local/qt5/include/QtCore/qvariant.h:
 
@@ -7111,6 +7230,8 @@ proto/monitor_info.pb.h:
 
 /usr/include/x86_64-linux-gnu/bits/floatn-common.h:
 
+/usr/local/include/yaml-cpp/node/detail/impl.h:
+
 /usr/include/c++/7/bits/uniform_int_dist.h:
 
 /usr/include/c++/7/limits:
@@ -7195,6 +7316,8 @@ proto/monitor_info.pb.h:
 
 /usr/include/c++/7/bits/postypes.h:
 
+/usr/local/include/yaml-cpp/null.h:
+
 /usr/include/c++/7/typeinfo:
 
 /usr/include/x86_64-linux-gnu/bits/types/wint_t.h:
@@ -7234,6 +7357,8 @@ proto/monitor_info.pb.h:
 /usr/include/c++/7/bits/allocator.h:
 
 /usr/local/qt5/include/QtCore/qdatetime.h:
+
+/usr/local/include/yaml-cpp/node/iterator.h:
 
 /usr/include/x86_64-linux-gnu/bits/sigevent-consts.h:
 
@@ -7331,6 +7456,8 @@ proto/cpu_softirq.pb.h:
 
 /usr/local/include/google/protobuf/map.h:
 
+/usr/local/include/yaml-cpp/node/convert.h:
+
 /usr/local/include/google/protobuf/message_lite.h:
 
 /usr/local/include/grpcpp/completion_queue.h:
@@ -7374,6 +7501,8 @@ proto/cpu_softirq.pb.h:
 /usr/local/include/google/protobuf/implicit_weak_message.h:
 
 /usr/local/include/google/protobuf/stubs/casts.h:
+
+/usr/local/include/yaml-cpp/yaml.h:
 
 /usr/local/include/google/protobuf/wire_format_lite.h:
 
@@ -7631,6 +7760,8 @@ display_monitor/display_autogen/EWIEGA46WW/moc_monitor_widget.cpp:
 
 /usr/local/qt5/include/QtGui/qbrush.h:
 
+/usr/local/include/yaml-cpp/emitterdef.h:
+
 /usr/include/c++/7/tr1/riemann_zeta.tcc:
 
 /usr/local/qt5/include/QtGui/qcolor.h:
@@ -7678,6 +7809,8 @@ display_monitor/display_autogen/EWIEGA46WW/moc_monitor_widget.cpp:
 /usr/local/qt5/include/QtCore/qsharedpointer_impl.h:
 
 /usr/local/qt5/include/QtGui/qicon.h:
+
+/usr/local/include/yaml-cpp/node/detail/iterator.h:
 
 /usr/local/qt5/include/QtGui/qwindow.h:
 
@@ -7778,6 +7911,8 @@ display_monitor/display_autogen/EWIEGA46WW/moc_cpu_softirq_model.cpp:
 /usr/local/qt5/include/QtCore/qfactoryinterface.h:
 
 /usr/local/qt5/include/QtCore/qsettings.h:
+
+/usr/include/c++/7/bits/valarray_after.h:
 
 /usr/local/qt5/include/QtWidgets/qtabbar.h:
 

@@ -5,3 +5,14 @@ add_subdirectory(
 add_subdirectory(
     singleton
 )
+
+# add_library(
+#     utils
+#     INTERFACE
+# )
+
+# target_include_directories(
+#     utils 
+#     INTERFACE
+#     ./
+# )

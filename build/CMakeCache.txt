@@ -268,7 +268,7 @@ config_LIB_DEPENDS:STATIC=general;yaml-cpp;general;pthread;
 gRPC_DIR:PATH=/usr/local/lib/cmake/grpc
 
 //Dependencies for the target
-log_LIB_DEPENDS:STATIC=general;singleton;
+log_LIB_DEPENDS:STATIC=general;singleton;general;config;
 
 //Dependencies for the target
 monitor_proto_LIB_DEPENDS:STATIC=general;protobuf::libprotobuf;general;gRPC::grpc;general;gRPC::grpc++;
